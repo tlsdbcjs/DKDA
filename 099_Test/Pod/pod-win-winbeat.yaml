@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: winlogbeat-pod
+spec:
+  containers:
+  - image: registry.kubernetes.com/winlogbeat:8.5.0
+    name: winlogbeat
+    env:
+     - name: RUNFILE
+       value: "C:\ProgramData\envt_ssm"
+  nodeSelector:
+    kubernetes.io/os: linux
