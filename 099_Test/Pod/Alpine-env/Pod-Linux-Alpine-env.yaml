@@ -10,4 +10,4 @@ spec:
       - name: MY_VARIABLE
         value: "SSM1"
       - name: CUSTOM_VARIABLE
-        value: "SSM2"
+        value: "SSM3"
