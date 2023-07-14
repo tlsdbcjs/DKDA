@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: windows-env-pod
+spec:
+  containers:
+  - image: registry.kubernetes.com/windows-env:1.0.0
+    name: windows-env
+    env:
+      - name: MY_VARIABLE
+        value: "SSM1"
+      - name: CUSTOM_VARIABLE
+        value: "SSM3"
