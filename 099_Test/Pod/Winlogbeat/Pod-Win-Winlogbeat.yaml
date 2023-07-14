@@ -8,7 +8,10 @@ spec:
     name: winlogbeat
     env:
      - name: RUNFILE
-       value: "C:\ProgramData\envt_ssm"
+       value: "C:\\ProgramData\\envt_ssm"
   nodeSelector:
     kubernetes.io/os: windows
-    
+  tolerations:
+  - key: "node-role.kubernetes.io/control-plane"
+    operator: "Exists"
+    effect: "NoSchedule"
