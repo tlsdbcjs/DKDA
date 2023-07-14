@@ -10,4 +10,4 @@ spec:
      - name: RUNFILE
        value: "C:\ProgramData\envt_ssm"
   nodeSelector:
-    kubernetes.io/os: linux
+    kubernetes.io/os: windows
