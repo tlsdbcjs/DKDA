@@ -11,3 +11,4 @@ spec:
        value: "C:\ProgramData\envt_ssm"
   nodeSelector:
     kubernetes.io/os: windows
+
