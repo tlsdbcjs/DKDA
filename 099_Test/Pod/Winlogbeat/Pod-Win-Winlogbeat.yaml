@@ -7,8 +7,8 @@ spec:
   - image: registry.kubernetes.com/winlogbeat:8.5.0
     name: winlogbeat
     env:
-     - name: RUNFILE
-       value: "C:\\ProgramData\\envt_ssm"
+    - name: RUNFILE
+      value: "C:\\ProgramData\\envt_ssm"
   nodeSelector:
     kubernetes.io/os: windows
   tolerations:
