@@ -1,8 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: Alpine-env-pod
+  name: alpine-env-pod
 spec:
   containers:
   - image: registry.kubernetes.com/linux-env:1.0.0
-    name: Alpine-env
+    name: alpine-env
+    env:
+      - name: MY_VARIABLE
+        value: "SSM1"
+      - name: CUSTOM_VARIABLE
+        value: "SSM3"
