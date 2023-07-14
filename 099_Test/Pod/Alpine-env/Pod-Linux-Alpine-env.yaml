@@ -7,7 +7,7 @@ spec:
   - image: registry.kubernetes.com/linux-env:1.0.0
     name: Alpine-env
     env:
-    - name: MY_VARIABLE
-      value: "SSM1"
-    - name: CUSTOM_VARIABLE
-      value: "SSM2"
+      - name: MY_VARIABLE
+        value: "SSM1"
+      - name: CUSTOM_VARIABLE
+        value: "SSM2"
