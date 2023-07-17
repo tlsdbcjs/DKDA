@@ -24,7 +24,7 @@ spec:
           persistentVolumeClaim:
             claimName: pvc-windows-smb
       nodeSelector:
-        kubernetes.io/os: windows
+        "kubernetes.io/os": windows
       tolerations:
         - key: "node-role.kubernetes.io/control-plane"
           operator: "Exists"
