@@ -8,6 +8,6 @@ entries:
     digest: 944a8f5949e15500c67fd58c8de15ee485c2f2e6b4bbbd0f0cdbfe15fd30c48d
     name: csi-driver-smb
     urls:
-    - https://github.com/tlsdbcjs/DKDA.git/001_Install/005_csi-driver-smb/helm/latest/csi-driver-smb-v0.0.0.tgz
+    - https://raw.githubusercontent.com/tlsdbcjs/DKDA/main/001_Install/005_csi-driver-smb/helm/latest/csi-driver-smb-v0.0.0.tgz
     version: v0.0.0
 generated: "2023-07-17T09:53:12.249568435Z"
