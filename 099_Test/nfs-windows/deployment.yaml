@@ -22,3 +22,9 @@ spec:
         - name: application-nfs-storage
           persistentVolumeClaim:
             claimName: windows-nfs
+      nodeSelector:
+        kubernetes.io/os: windows
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
