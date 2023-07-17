@@ -7,8 +7,8 @@ metadata:
     app: windows-smb
 spec:
   accessModes:
-    - "ReadWriteOnce"
+    - "ReadWriteMany"
   resources:
     requests:
-      storage: 10Gi
+      storage: 1Gi
   storageClassName: smb-class
