@@ -11,3 +11,9 @@ spec:
         value: "SSM1"
       - name: CUSTOM_VARIABLE
         value: "SSM3"
+  nodeSelector:
+    kubernetes.io/os: windows
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
