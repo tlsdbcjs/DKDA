@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: windows-nfs-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: windows-nfs
+  template:
+    metadata:
+      labels:
+        app: windows-nfs
+    spec:
+      containers:
+        - name: windows-nfs
+          image: registry.kubernetes.com/windows-nfs:1.0.0
+          volumeMounts:
+            - name: application-nfs-storage
+              mountPath: c:/ssm/nfs
+      volumes:
+        - name: application-nfs-storage
+          persistentVolumeClaim:
+            claimName: windows-nfs
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: windows-nfs
+  namespace: default
+  labels:
+    app: windows-nfs
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: nfs-client-default
