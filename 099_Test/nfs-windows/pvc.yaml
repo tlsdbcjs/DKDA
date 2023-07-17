@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: windows-nfs
+  namespace: default
+  labels:
+    app: windows-nfs
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: nfs-client-default
