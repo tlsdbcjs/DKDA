@@ -16,13 +16,13 @@ spec:
       containers:
         - name: windows-smb
           image: registry.kubernetes.com/windows-nfs:1.0.0
-#          volumeMounts:
-#            - name: application-smb-storage
-#              mountPath: c:/ssm/nfs
-#      volumes:
-#        - name: application-smb-storage
-#          persistentVolumeClaim:
-#            claimName: pvc-windows-smb
+          volumeMounts:
+            - name: application-smb-storage
+              mountPath: "c:/ssm/nfs"
+      volumes:
+        - name: application-smb-storage
+          persistentVolumeClaim:
+            claimName: pvc-windows-smb
       nodeSelector:
         "kubernetes.io/os": windows
       tolerations:
