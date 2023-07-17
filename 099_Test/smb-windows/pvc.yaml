@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: windows-nfs
+  name: pvc-windows-smb
   namespace: default
   labels:
-    app: windows-nfs
+    app: windows-smb
 spec:
   accessModes:
     - "ReadWriteOnce"

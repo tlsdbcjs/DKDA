@@ -1,27 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: windows-nfs-deploy
+  name: windows-smb-deploy
+  namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: windows-nfs
+      app: windows-smb
   template:
     metadata:
       labels:
-        app: windows-nfs
+        app: windows-smb
     spec:
       containers:
-        - name: windows-nfs
-          image: registry.kubernetes.com/windows-nfs:1.0.0
+        - name: windows-smb
+          image: registry.kubernetes.com/windows-smb:1.0.0
           volumeMounts:
-            - name: application-nfs-storage
-              mountPath: c:/ssm/nfs
+            - name: application-smb-storage
+              mountPath: c:/ssm/smb
       volumes:
-        - name: application-nfs-storage
+        - name: application-smb-storage
           persistentVolumeClaim:
-            claimName: windows-nfs
+            claimName: windows-smb
       nodeSelector:
         kubernetes.io/os: windows
       tolerations:
