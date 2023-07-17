@@ -22,7 +22,7 @@ spec:
       volumes:
         - name: application-smb-storage
           persistentVolumeClaim:
-            claimName: windows-smb
+            claimName: pvc-windows-smb
       nodeSelector:
         kubernetes.io/os: windows
       tolerations:
