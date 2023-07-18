@@ -16,6 +16,10 @@ spec:
       containers:
         - name: windows-smb
           image: registry.kubernetes.com/windows-nfs:1.0.0
+          command:
+            - "pwsh.exe"
+            - "-Command"
+            - "while (1) { Add-Content -Encoding Ascii C:\\ssm\\nfs\\data.txt $(Get-Date -Format u); sleep 1 }"
           volumeMounts:
             - name: application-smb-storage
               mountPath: "/ssm/nfs"
