@@ -18,7 +18,8 @@ spec:
           image: registry.kubernetes.com/windows-nfs:1.0.0
           volumeMounts:
             - name: application-smb-storage
-              mountPath: "c:/ssm/nfs"
+              mountPath: "/ssm/nfs"
+              subPath: subPath
       volumes:
         - name: application-smb-storage
           persistentVolumeClaim:
