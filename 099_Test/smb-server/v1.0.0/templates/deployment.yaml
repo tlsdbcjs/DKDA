@@ -39,7 +39,7 @@ spec:
                 secretKeyRef:
                   name: {{ template "smb-server.fullname" . }}-credentials
                   key: password
-          args: ["-u", "$(USERNAME);$(PASSWORD)", "-s", "share;/smbshare/;yes;no;no;all;none", "-p"]
+          args: ["-u", "$(USERNAME);$(PASSWORD)", "-s", "{{ .Values.smb.sharename }};/smbshare/;{{ .Values.smb.browseable }};{{ .Values.smb.readonly }};{{ .Values.smb.guest }};{{ .Values.smb.users }};{{ .Values.smb.admins }}", "-p"]
           volumeMounts:
             - mountPath: /smbshare
               name: data-volume

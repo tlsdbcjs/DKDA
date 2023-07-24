@@ -6,6 +6,24 @@ smb:
   username: ""
   password: ""
 
+  #공유 폴더 별칭
+  sharename: "share"
+
+  #기본값은 'yes' 또는 'no'로, 해당 공유가 네트워크 상에서 탐색 가능한지 여부를 나타냅니다.
+  browseable: "yes"
+  
+  #기본값은 'yes' 또는 'no'로, 해당 공유가 guest 로그인을 허용할지 여부를 나타냅니다.
+  guest: "no"
+
+  #기본값은 'yes' 또는 'no'로, 해당 공유가 읽기 전용인지 여부를 나타냅니다.
+  readonly: "no"
+
+  #기본값은 'all' 또는 허용할 사용자들의 목록을 쉼표로 구분한 문자열입니다.
+  users: "all"
+
+  #기본값은 'none' 또는 공유를 관리할 수 있는 관리자 사용자들의 목록을 쉼표로 구분한 문자열입니다.
+  admins: "none"
+
   accessMode: 'ReadWriteOnce'
   size: 10Gi
   storageClass: '-'
