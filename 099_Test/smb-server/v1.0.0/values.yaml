@@ -6,9 +6,6 @@ smb:
   username: ""
   password: ""
 
-  # smb share path: "//192.168.10.171/share"
-  source: ""
-
   accessMode: 'ReadWriteOnce'
   size: 10Gi
   storageClass: '-'
