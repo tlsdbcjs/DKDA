@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ template "smb-server.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "smb-server.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  accessModes:
+    - {{ .Values.smb.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.smb.size | quote }}
+{{- if .Values.smb.storageClass }}
+{{- if (eq "-" .Values.smb.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.smb.storageClass }}"
+{{- end }}
+{{- end }}

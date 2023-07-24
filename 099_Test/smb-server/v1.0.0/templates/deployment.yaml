@@ -1,22 +1,30 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: smb-server
+  name: {{ template "smb-server.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "smb-server.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: smb-server
+      app: {{ template "smb-server.name" . }}
+      release: {{ .Release.Name }}
   template:
     metadata:
-      name: smb-server
+      name: {{ template "smb-server.name" . }}
       labels:
-        app: smb-server
+        app: {{ template "smb-server.name" . }}
+        release: {{ .Release.Name }}
     spec:
       nodeSelector:
         "kubernetes.io/os": linux
       containers:
-        - name: smb-server
+        - name: {{ template "smb-server.name" . }}
           image: andyzhangx/samba:win-fix
           env:
             - name: PERMISSIONS
@@ -24,12 +32,12 @@ spec:
             - name: USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: smb-credentials
+                  name: smb-server-credentials
                   key: username
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: smb-credentials
+                  name: smb-server-credentials
                   key: password
           args: ["-u", "$(USERNAME);$(PASSWORD)", "-s", "share;/smbshare/;yes;no;no;all;none", "-p"]
           volumeMounts:
@@ -37,8 +45,15 @@ spec:
               name: data-volume
           ports:
             - containerPort: 445
+      {{- if not .Values.smb.nfs.enable}}
       volumes:
         - name: data-volume
           hostPath:
             path: /home/kubernetes/smbshare-volume  # modify this to specify another path to store smb share data
             type: DirectoryOrCreate
+      {{- else }}
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: {{ template "smb-server.fullname" . }}
+      {{- end }}

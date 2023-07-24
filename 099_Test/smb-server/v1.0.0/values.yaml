@@ -1,0 +1,23 @@
+replicaCount: 1
+
+
+smb:
+  nfsEnable: false
+  username: ""
+  password: ""
+
+  # smb share path: "//192.168.10.171/share"
+  source: ""
+
+  accessMode: 'ReadWriteOnce'
+  size: 10Gi
+  storageClass: '-'
+  
+
+
+service:
+  type: LoadBalancer
+  # clusterIP:
+  # loadBalancerIP:
+  # loadBalancerSourceRanges:
+  port: 445

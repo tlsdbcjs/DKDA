@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-smb
+  name: pvc-smb-server
   namespace: default
   labels:
-    app: windows-smb
+    app: smb-server-nfs
 spec:
   accessModes:
-    - "ReadWriteMany"
+    - "ReadWriteOnce"
   resources:
     requests:
-      storage: 1Gi
-  storageClassName: smb-class
+      storage: 10Gi
+  storageClassName: nfs-client-smb-server

@@ -1,0 +1,20 @@
+replicaCount: 1
+
+
+smb:
+  nfsEnable: true
+  username: "smb"
+  password: "1234"
+
+  accessMode: 'ReadWriteOnce'
+  size: 10Gi
+  storageClass: '-'
+
+
+
+service:
+  type: LoadBalancer
+  # clusterIP:
+  # loadBalancerIP:
+  # loadBalancerSourceRanges:
+  port: 445

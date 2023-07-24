@@ -1,0 +1,26 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ template "smb-server.fullname" . }}
+  labels:
+    app: {{ template "smb-server.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+{{- if (and (eq .Values.service.type "ClusterIP") (not (empty .Values.service.clusterIP))) }}
+  clusterIP: {{ .Values.service.clusterIP }}
+{{- end }}
+{{- if (and (eq .Values.service.type "LoadBalancer") (not (empty .Values.service.loadBalancerIP))) }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
+{{- end }}
+{{- if (and (eq .Values.service.type "LoadBalancer") (not (empty .Values.service.loadBalancerSourceRanges))) }}
+  loadBalancerSourceRanges: {{ .Values.service.loadBalancerSourceRanges }}
+{{- end }}
+  selector:
+    app: {{ template "smb-server.name" . }}
+    release: {{ .Release.Name }}
+  ports:
+    - port: {{ .Values.service.port }}
+      name: smb-server
