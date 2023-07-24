@@ -32,12 +32,12 @@ spec:
             - name: USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: smb-server-credentials
+                  name: {{ template "smb-server.fullname" . }}-credentials
                   key: username
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: smb-server-credentials
+                  name: {{ template "smb-server.fullname" . }}-credentials
                   key: password
           args: ["-u", "$(USERNAME);$(PASSWORD)", "-s", "share;/smbshare/;yes;no;no;all;none", "-p"]
           volumeMounts:
