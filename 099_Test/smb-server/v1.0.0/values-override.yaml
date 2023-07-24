@@ -8,7 +8,7 @@ smb:
 
   accessMode: 'ReadWriteOnce'
   size: 10Gi
-  storageClass: '-'
+  storageClass: "nfs-client-smb-server"
 
 
 
