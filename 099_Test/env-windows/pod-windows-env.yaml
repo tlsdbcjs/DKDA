@@ -4,8 +4,8 @@ metadata:
   name: windows-env-pod
 spec:
   containers:
-  - image: registry.kubernetes.com/windows-env:1.0.0
-  #- image: registry.kubernetes.com/windows-nfs:1.0.0
+  #- image: registry.kubernetes.com/windows-env:1.0.0
+  - image: registry.kubernetes.com/windows-nfs:1.0.0
     name: windows-env
     env:
       - name: MY_VARIABLE
