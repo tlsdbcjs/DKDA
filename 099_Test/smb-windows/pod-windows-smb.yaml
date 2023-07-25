@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: windows-env-pod
+  name: windows-smb-pod
 spec:
   containers:
   - image: registry.kubernetes.com/windows-smb:1.0.0
-    name: windows-env
+    name: windows-smb
     env:
       - name: DRIVELETTER
         value: "Z"
