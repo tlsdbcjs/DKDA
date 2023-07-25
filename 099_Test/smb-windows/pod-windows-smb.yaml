@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: windows-env-pod
+spec:
+  containers:
+  - image: registry.kubernetes.com/windows-smb:1.0.0
+    name: windows-env
+    env:
+      - name: DRIVELETTER
+        value: "Z"
+      - name: networkPath
+        value: "//192.168.10.201/share"
+      - name: username
+        value: "testsmb2"
+      - name: password
+        value: "qwer1234"
+  nodeSelector:
+    kubernetes.io/os: windows
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
