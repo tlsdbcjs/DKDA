@@ -4,7 +4,7 @@ smb:
   nfsEnable: true
   username: "windowssmb"
   password: "qwer1234!@"
-  guest: "yes"
+  #guest: "yes"
 
   accessMode: 'ReadWriteOnce'
   size: 10Gi
