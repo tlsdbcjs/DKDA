@@ -4,15 +4,15 @@ smb:
   nfsEnable: true
   username: "windowssmb"
   password: "qwer1234!@"
-  guest: "yes"
+  #guest: "yes"
 
   accessMode: 'ReadWriteOnce'
   size: 10Gi
   storageClass: "nfs-client-smb-server"
 
 service:
-  #type: LoadBalancer
-  type: ClusterIP
+  type: LoadBalancer
+  #type: ClusterIP
   # loadBalancerIP:
   # loadBalancerSourceRanges:
   port: 445
