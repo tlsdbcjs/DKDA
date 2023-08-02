@@ -11,7 +11,7 @@ smb:
 
 service:
   #type: LoadBalancer
-  type: clusterIP
+  type: ClusterIP
   # loadBalancerIP:
   # loadBalancerSourceRanges:
   port: 445
