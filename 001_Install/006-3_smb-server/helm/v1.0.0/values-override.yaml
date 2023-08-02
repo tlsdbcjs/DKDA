@@ -1,6 +1,5 @@
 replicaCount: 1
 
-
 smb:
   nfsEnable: true
   username: "windowssmb"
