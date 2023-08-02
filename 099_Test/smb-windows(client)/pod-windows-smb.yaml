@@ -10,7 +10,7 @@ spec:
       - name: DRIVELETTER
         value: "Z"
       - name: networkPath
-        value: "//10.43.100.187/share"
+        value: "\\\\10.43.100.187\\share"
       - name: username
         value: "windowssmb"
       - name: password
