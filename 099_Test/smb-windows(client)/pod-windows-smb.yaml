@@ -10,11 +10,11 @@ spec:
       - name: DRIVELETTER
         value: "Z"
       - name: networkPath
-        value: "//192.168.10.201/share"
+        value: "//10.43.100.187/share"
       - name: username
-        value: "testsmb2"
+        value: "windowssmb"
       - name: password
-        value: "qwer1234"
+        value: "qwer1234!@"
   nodeSelector:
     kubernetes.io/os: windows
   tolerations:
