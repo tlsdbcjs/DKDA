@@ -10,8 +10,8 @@ smb:
   storageClass: "nfs-client-smb-server"
 
 service:
-  type: LoadBalancer
-  # clusterIP:
+  #type: LoadBalancer
+  type: clusterIP
   # loadBalancerIP:
   # loadBalancerSourceRanges:
   port: 445
