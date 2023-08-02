@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: windows-smb-pod
+  name: windows-smb-client-pod
 spec:
   containers:
   - image: registry.kubernetes.com/windows-smb:1.0.0
