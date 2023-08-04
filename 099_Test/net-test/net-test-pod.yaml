@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
     - name: network-test-container
-      image: busybox
+      image: curlimages/curl
       command: ["sleep", "3600"]
