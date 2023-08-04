@@ -8,7 +8,7 @@ spec:
     name: windows-smb
     env:
       - name: DRIVELETTER
-        value: "Z:"
+        value: "Z"
       - name: networkPath
         value: "\\\\windows-smb-server.analysis-elasticsearch.svc.cluster.local\\share"
       - name: username
