@@ -4,15 +4,13 @@ metadata:
   name: windows-smb-client-pod
 spec:
   containers:
-  - image: registry.kubernetes.com/windows-smb:1.1.1
+  - image: registry.kubernetes.com/windows-smb:1.1.2
     name: windows-smb
     env:
       - name: DRIVELETTER
         value: "Z:"
       - name: networkPath
         value: "\\\\windows-smb-server.analysis-elasticsearch.svc.cluster.local\\share"
-      - name: domainname
-        value: "."
       - name: username
         valueFrom:
           secretKeyRef:
