@@ -6,4 +6,6 @@ spec:
   containers:
     - name: network-test-container
       image: busybox
-      command: ["sleep", "3600"]
+      command: ["/bin/sh", "-c"]
+      args:
+        - apk update && apk add curl && sleep 3600
